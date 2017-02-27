@@ -1,0 +1,229 @@
+@import "./aside-mixin";
+@import "./mixins";
+@import "./variables";
+
+$pad: 10px;
+$itemHeight: 45px;
+
+.enter-main-wrap {
+  @include aside-main-wrap-common;
+}
+
+.container-wrap {
+  padding: $headerHeight 0 $pad 0;
+}
+
+.main-wrap {
+  padding: $pad $pad 0 $pad;
+}
+
+.enter-tip {
+  height: $itemHeight;
+  line-height: $itemHeight;
+  font-size: 14px;
+  padding: 0 10px;
+}
+
+.enter-tip.warning {
+  background-color: $colorWarningBg;
+  color: $colorWarning;
+}
+
+.enter-tip.danger {
+  background-color: $colorDangerBg;
+  color: $colorDanger;
+}
+
+.form-group {
+  border: 1px solid $borderColorD;
+  border-radius: 4px;
+  background-color: white;
+  margin-bottom:12px;
+  padding: 0 15px;
+}
+
+.form-group-title {
+  font-size: 17px;
+  color: $textPrimary;
+  height: 20px;
+  line-height: 20px;
+  border-left: 4px solid $green;
+  margin-left: -15px;
+  padding-left: 11px;
+}
+
+.form-item {
+  font-size: 16px;
+  height: $itemHeight;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $borderColorD;
+}
+
+/* 高度可撑开的一栏 */
+.form-item.expandable {
+  min-height: 45px;
+  height: auto;
+}
+
+.form-group > .form-item:last-child {
+  border-bottom: none;
+}
+
+.form-item-title {
+  color: $textNormal;
+  //padding-left: 10px;
+  padding-right: 15px;
+  min-width: 90px;
+}
+
+.form-item-content {
+  flex: 1;
+}
+
+.form-input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+  color: $textPrimary;
+}
+
+/*.form-input:disabled {
+  color: $textPrimary;
+  -webkit-text-fill-color: $textPrimary;
+  opacity: 1;
+}*/
+
+.form-input::-webkit-input-placeholder {
+  color: $colorPlaceholder;
+}
+
+select.form-input {
+  -webkit-appearance: none;
+}
+
+.image-item {
+  border-top: 1px solid $borderColorE;
+  padding-bottom: 18px;
+}
+
+.image-item-title {
+  height: 43px;
+  color: $textNormal;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.image-icon {
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-right: 10px;
+}
+
+.image-icon.idcard {
+  background-image: url('http://img.ishequ360.com/images/zg/supply/porfile_info_icon_idcard.png');
+}
+
+.image-icon.licence {
+  background-image: url('http://img.ishequ360.com/images/zg/supply/porfile_info_icon_licence.png');
+}
+
+.image-icon.store {
+  background-image: url('http://img.ishequ360.com/images/zg/supply/porfile_info_icon_store.png');
+}
+
+.image-item-img {
+  width: 100%;
+  height: auto;
+}
+
+.operation-wrap {
+  margin-bottom: 10px;
+}
+
+.common-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  height: 30px;
+  padding: 0 7px;
+  border: 1px solid $green;
+  border-radius: 2px;
+}
+
+.common-item-name {
+  display: inline-block;
+  max-width: 10em;
+  @include one-line;
+}
+
+.common-item-remove {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background: url('http://img.ishequ360.com/images/zg/supply/icon-del.png') no-repeat center;
+  background-size: 11px 11px;
+  margin-left: 7px;
+}
+
+.common-item.area {
+  float: left;
+  margin: 5px 10px 5px 0;
+}
+
+.form-item-content.with-arrow {
+  position: relative;
+}
+
+.form-item-content.with-arrow::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 13px;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 13px 7px;
+}
+
+.form-item-content.with-arrow.arrow-up::after {
+  background-image: url('http://img.ishequ360.com/images/zg/supply/icon-arrow-up.png');
+}
+
+.form-item-content.with-arrow.arrow-down::after {
+  background-image: url('http://img.ishequ360.com/images/zg/supply/icon-arrow-down.png');
+}
+
+.form-item-content.with-arrow.arrow-right::after {
+  background-image: url('http://img.ishequ360.com/images/zg/supply/icon-arrow-down.png');
+  transform: rotate(-90deg);
+}
+
+.image-preview-wrap {
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.image-preview {
+  height: 100px;
+  border-radius: 2px;
+  flex: 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+}
+
+.image-preview-wrap > .image-preview:first-child {
+  margin-right: 15px;
+}

@@ -1,0 +1,75 @@
+/* 开启硬件加速, 对CSS3渐变效果或requestAnimationFrame使用 */
+@mixin hardware-acceleration {
+  transform: translate3d(0, 0, 0);
+}
+
+@mixin ios-scroll-smoothing {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 绘制设备像素为1的边框 (1px的一半) */
+@mixin borderTop1dp($color) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background: $color;
+    transform: scaleY(0.5);
+    transform-origin: top left;
+  }
+}
+
+@mixin borderBottom1dp($color) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: $color;
+    transform: scaleY(0.5);
+    transform-origin: bottom left;
+  }
+}
+
+@mixin borderLeft1dp($color) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: $color;
+    transform: scaleX(0.5);
+    transform-origin: top left;
+  }
+}
+
+@mixin borderRight1dp($color) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: $color;
+    transform: scaleX(0.5);
+    transform-origin: top right;
+  }
+}
+
+@mixin one-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

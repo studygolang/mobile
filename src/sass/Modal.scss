@@ -1,0 +1,83 @@
+@import "variables";
+@import "mixins";
+
+/* 使用top,left,bottom,right设置0, 并且margin:auto 可实现垂直居中 */
+#v-modal-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(51, 51, 51, 0.5);
+  z-index: $modalZIndex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include hardware-acceleration;
+}
+
+#v-modal-dialog {
+  background-color: #fff;
+  width: 80%;
+  height: auto;
+  padding-top: 20px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: $textPrimary;
+  overflow: hidden;
+  -webkit-user-select: none;
+}
+
+#v-modal-dialog * {
+  box-sizing: border-box;
+}
+
+#v-modal-footer {
+  text-align: right;
+  display: flex;
+  height: 50px;
+  @include borderTop1dp($borderColorD);   /* 为footer绘制顶部物理像素1px的边框 */
+}
+
+.v-modal-btn {
+  flex: 1;
+  border: none;
+  background-color: #ffffff;
+  outline: none;
+  font-size: 16px;
+}
+
+.v-modal-btn.primary {
+  color: $green;
+}
+
+.v-modal-btn.slave {
+  color: $textNormal;
+  @include borderRight1dp($borderColorD);    /* 为取消按钮绘制右侧物理像素1px的边框 */
+}
+
+.v-modal-btn:hover, .v-modal-btn:active {
+  background-color: #eeeeee;
+}
+
+#v-modal-title {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#v-modal-body {
+  font-size: 15px;
+  text-align: center;
+  line-height: 22px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  white-space: normal;
+}
+
+.modal-enter-active, .modal-leave-active {
+  transition: opacity .2s ease;
+}
+.modal-enter, .modal-leave-active {
+  opacity: 0
+}

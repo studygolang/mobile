@@ -1,0 +1,54 @@
+@import "aside-mixin";
+@import "variables";
+
+$headerHeight: 45px;
+.article-wrap {
+  padding: $headerHeight + 10 10px 20px 10px;
+  background-color: #fff;
+  @include aside-main-wrap-common;
+}
+
+.article-wrap .title {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.article-header-meta {
+  margin: 0 5px 10px 0;
+  overflow: hidden;
+}
+
+.article-header-meta .avatar {
+  margin-right: 6px;
+}
+
+.article-header-meta .author {
+  font-size: 16px;
+}
+
+.article-header-meta .time {
+  font-size: 12px;
+  color: #ccc;
+}
+.article-footer-meta {
+  margin-bottom: 60px;
+  font-size: 13px;
+  background-color: #f5f5f5;
+  padding: 3px;
+  list-style: none;
+  line-height: 1.5;
+}
+
+.center-loading {
+  font-size: 12px;
+  color: $textSlave;
+  text-align: center;
+  height: 32px;
+  line-height: 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}

@@ -1,0 +1,95 @@
+@import "variables";
+
+#top-header {
+  background: $linearGreen;
+  text-align: center;
+  font-size: 17px;
+  color: white;
+  height: $headerHeight;
+  line-height: $headerHeight;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  margin: 0;
+}
+
+#top-header.in-side-bar {
+  position: static;
+}
+
+#top-header.no-box-shadow {
+  box-shadow: none;
+}
+
+.go-back-btn {
+  position: absolute;
+  display: block;
+  width: $headerHeight;
+  height: $headerHeight;
+  left: 0;
+  top: 0;
+  background: url('http://img.ishequ360.com/images/zg/crm/nav-back.png') no-repeat center;
+  background-size: 11px 19px;
+}
+
+.go-prepare-btn {
+  position: absolute;
+  display: block;
+  height: $headerHeight;
+  padding-left: 43px;
+  left: 0;
+  top: 0;
+  background: url('http://img.ishequ360.com/images/zg/supply/icon-price.png') no-repeat 15px;
+  background-size: 23px 23px;
+  font-size: 14px;
+}
+
+.go-ok-btn {
+  position: absolute;
+  display: block;
+  height: $headerHeight;
+  right: 0;
+  top: 0;
+  padding: 0 15px;
+}
+
+.go-personal-btn {
+  position: absolute;
+  height: $headerHeight;
+  width: $headerHeight;
+  right: 0;
+  top: 0;
+  background: url('http://img.ishequ360.com/images/zg/supply/icon-personal.png') no-repeat center;
+  background-size: 23px 23px;
+}
+
+.go-edit-btn {
+  position: absolute;
+  height: $headerHeight;
+  padding: 0 15px;
+  top: 0;
+  right: 0;
+}
+
+.go-calendar-btn {
+  position: absolute;
+  height: $headerHeight;
+  width: $headerHeight;
+  right: 0;
+  top: 0;
+  background: url('http://img.ishequ360.com/images/zg/supply/icon-calender-thin.png') no-repeat center;
+  background-size: 22px 20px;
+}
+
+.go-today-btn {
+  position: absolute;
+  height: $headerHeight;
+  width: $headerHeight;
+  left: 0;
+  top: 0;
+  background: url('http://img.ishequ360.com/images/zg/supply/icon-today.png') no-repeat center;
+  background-size: 21px 21px;
+}

@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+@import "variables";
+
+.float-left {
+  float: left !important;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+.common-btn {
+  height: 44px;
+  line-height: 44px;
+  color: white;
+  font-size: 17px;
+  outline: none;
+  border: none;
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.common-btn.success {
+  background: $linearGreen;
+}
+
+.common-btn:disabled {
+  background: $borderColorD;
+}
+
+.common-btn.danger {
+  color: $redDanger;
+  border: 1px solid $redDanger;
+  background-color: #fff;
+}
+
+.common-btn.danger.solid {
+  color: #ffffff;
+  border: none;
+  background-color: $redDanger;
+}
+
+.text-placeholder {
+  color: $colorPlaceholder !important;
+}
+
+.color-green {
+  color: $green !important;
+}
+
+.color-red {
+  color: $red !important;
+}

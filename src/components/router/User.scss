@@ -1,0 +1,96 @@
+@import "../../sass/variables";
+
+.user-tab-main-wrap {
+  padding-top: $headerHeight;
+}
+
+.user-profile-wrap {
+  background: $linearGreen;
+  height: 176px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.user-head-image {
+  width: 82px;
+  height: 82px;
+  background: url('http://studygolang.qiniudn.com/app/default-avatar.png') no-repeat center;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.user-name-main {
+  font-size: 20px;
+  height: 20px;
+  margin-top: 10px;
+}
+
+.user-name-slave {
+  font-size: 16px;
+  height: 16px;
+  margin-top: 10px;
+}
+
+.user-menu-group {
+  background-color: #fff;
+  border-top: 1px solid $borderColorE;
+  border-bottom: 1px solid $borderColorE;
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.user-menu {
+  height: 45px;
+  border-bottom: 1px solid $borderColorE;
+  padding-right: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-menu-group > .user-menu:last-child {
+  border-bottom: none;
+}
+
+.flex-group {
+  display: flex;
+  align-items: center;
+}
+
+.user-menu-name {
+  font-size: 16px;
+  color: $textPrimary;
+}
+
+.user-menu-icon {
+  width: 26px;
+  height: 26px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-right: 8px;
+}
+
+.user-menu-icon.info {
+  background-image: url('http://img.ishequ360.com/images/zg/supply/profile-icon-info.png');
+}
+.user-menu-icon.share {
+  background-image: url('http://img.ishequ360.com/images/zg/supply/profile-icon-share.png');
+}
+.user-menu-icon.about {
+  background-image: url('http://img.ishequ360.com/images/zg/supply/profile-icon-about.png');
+}
+.user-menu-icon.exit {
+  background-image: url('http://img.ishequ360.com/images/zg/supply/profile-icon-exit.png');
+}
+
+.user-menu-more {
+  width: 6px;
+  height: 11px;
+  background: url(http://img.ishequ360.com/images/zg/supply/porfile-icon-more.png) no-repeat center;
+  background-size: contain;
+}

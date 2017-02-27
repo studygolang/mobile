@@ -1,0 +1,24 @@
+@import "../sass/variables";
+
+.toast-wrap {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  width: 50%;
+  z-index: $toastZIndex;
+  margin: 5px auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  text-align: center;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.toast-enter-active, .toast-leave-active {
+  transition: opacity .5s
+}
+.toast-enter, .toast-leave-active {
+  opacity: 0
+}

@@ -1,0 +1,77 @@
+@import "../sass/common.scss";
+@import "aside";
+
+a:hover, a:visited, a:active, a:focus, a:link {
+  text-decoration: none;
+  color: green;
+}
+
+.footer-wrap {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: $footerHeight;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  box-shadow: 0 -1px 2px rgba(#000, 0.1);
+  z-index: $footerZIndex;
+}
+
+a.footer-menu {
+  padding: 2px 0;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: #8c8c8c;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.footer-menu.router-link-active {
+  color: $green;
+
+  & .footer-menu-icon.article {
+    background-image: url(http://studygolang.qiniudn.com/app/article-pressed@2x.png);
+  }
+  & .footer-menu-icon.community {
+    background-image: url(http://studygolang.qiniudn.com/app/community-pressed@2x.png);
+  }
+  & .footer-menu-icon.project {
+    background-image: url(http://studygolang.qiniudn.com/app/project-pressed@2x.png);
+  }
+  & .footer-menu-icon.resource {
+    background-image: url(http://studygolang.qiniudn.com/app/resource-pressed@2x.png);
+  }
+  & .footer-menu-icon.user {
+    background-image: url(http://studygolang.qiniudn.com/app/profile-pressed@2x.png);
+  }
+}
+
+.footer-menu-icon {
+  width: 28px;
+  height: 28px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 28px 28px;
+}
+
+.footer-menu-icon.article {
+  background-image: url(http://studygolang.qiniudn.com/app/article-default@2x.png);
+}
+.footer-menu-icon.community {
+  background-image: url(http://studygolang.qiniudn.com/app/community-default@2x.png);
+}
+.footer-menu-icon.project {
+  background-image: url(http://studygolang.qiniudn.com/app/project-default@2x.png);
+}
+.footer-menu-icon.resource {
+  background-image: url(http://studygolang.qiniudn.com/app/resource-default@2x.png);
+}
+.footer-menu-icon.user {
+  background-image: url(http://studygolang.qiniudn.com/app/profile-default@2x.png);
+}
+

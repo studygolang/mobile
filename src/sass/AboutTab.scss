@@ -1,0 +1,57 @@
+@import "./aside-mixin";
+@import "./variables";
+
+.about-main-wrap {
+  @include aside-main-wrap-common;
+}
+
+.about-logo-wrap {
+  padding-top: $headerHeight + 70px;
+  padding-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-logo {
+  width: 110px;
+  height: 110px;
+  background: url('http://img.ishequ360.com/images/zg/supply/profile-about-logo.png') no-repeat center;
+  background-size: contain;
+}
+
+.about-barcode {
+  margin-top: 30px;
+  width: 110px;
+  height: 110px;
+  background: url('http://img.ishequ360.com/images/zg/supply/zhima-supply-qrcode.png') no-repeat center;
+  background-size: contain;
+}
+
+.about-text {
+  font-size: 14px;
+  color: $textNormal;
+  margin-top: 10px;
+}
+
+.copyright-wrap {
+  margin-top: 45px;
+  text-align: center;
+  margin-bottom: 15px;
+  color: $textNormal;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.user-menu-icon.version {
+  background-image: url('http://img.ishequ360.com/images/zg/supply/profile-about-icon-version.png');
+}
+.user-menu-icon.update {
+  background-image: url('http://img.ishequ360.com/images/zg/supply/profile-about-icon-update.png');
+}
+
+.user-menu-text {
+  font-size: 16px;
+  color: $textSlave;
+}

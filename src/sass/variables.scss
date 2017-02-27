@@ -1,0 +1,57 @@
+/* 标题栏高度 */
+$headerHeight: 45px;
+
+/* 底部栏高度 */
+$footerHeight: 49px;
+
+/* 主要文字颜色 */
+$textPrimary: #333333;
+
+/* 一般文字颜色 */
+$textNormal: #666666;
+
+/* 次要文字颜色 */
+$textSlave: #999999;
+
+/* 红色 */
+$red: #f14f51;
+
+/* 按钮红色 */
+$redDanger: #ff7162;
+
+/* 绿色 */
+$green: #63c47d;
+
+/* 绿色(深) */
+$greenDark: #54a66a;
+
+/* 警示类 */
+$colorDanger: #f14f51;
+$colorDangerBg: #fcdcdc;
+
+/* 提示类 */
+$colorWarning: #f5a623;
+$colorWarningBg: #fff2df;
+
+/* 背景色 */
+$bgColor: #f2f2f2;
+
+/* 次要分割线 */
+$borderColorD: #dadada;
+
+$borderColorE: #eaeaea;
+
+/* 主要分割线 */
+$colorPlaceholder: #bfbfbf;
+
+/* 渐变的绿色,用作header和button的背景 */
+$linearGreen: linear-gradient(to right, #63c470, #48b265);
+
+
+/* 叠放次序 */
+$footerZIndex: 10;      /* 底部菜单 */
+$popMenuZIndex: 20;     /* 弹出菜单 */
+$asideZIndex: 30;       /* 侧边弹出的路由页 */
+$loadingZIndex: 40;     /* 加载提示 */
+$toastZIndex: 45;       /* Toast */
+$modalZIndex: 50;       /* 模态窗 */

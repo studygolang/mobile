@@ -120,7 +120,7 @@ axios.interceptors.response.use(
 		EventBus.$emit('hideLoading');      // 隐藏loading
 		var data = resp.data;
 		var code = data.code;
-		if (code != 0) {
+		if (typeof code !== "undefined" && code != 0) {
 			EventBus.$emit('alert', {
 				message: data.msg || '未知错误',
 				callback: () => {

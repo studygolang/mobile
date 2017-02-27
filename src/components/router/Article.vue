@@ -45,17 +45,19 @@ export default {
 		PullDown
 	},
 	mounted: function() {
-		this.loadData();
-		let el = document.getElementById('list-main-wrap')
-		this.$refs.pulldown.bindElement(el, () => {
-			return new Promise((resolve, reject) => {
-				if (this.$route.path == "/articles") {
-					this.loadData(false, () => {resolve();});
-				} else {
-					(() => {resolve();})();
-				}
-			});
-		})
+		this.$nextTick(function() {
+			this.loadData();
+			let el = document.getElementById('list-main-wrap')
+			this.$refs.pulldown.bindElement(el, () => {
+				return new Promise((resolve, reject) => {
+					if (this.$route.path == "/articles") {
+						this.loadData(false, () => {resolve();});
+					} else {
+						(() => {resolve();})();
+					}
+				});
+			})
+		});
 	},
 	beforeRouteEnter: function(to, from, next) {
 		next(vm => {

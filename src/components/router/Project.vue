@@ -44,16 +44,18 @@ export default {
 		PullDown
 	},
 	mounted: function() {
-		this.loadData();
-		this.$refs.pulldown.bindElement(null, () => {
-			return new Promise((resolve, reject) => {
-				if (this.$route.path == "/projects") {
-					this.loadData(false, () => {resolve();});
-				} else {
-					(() => {resolve();})();
-				}
-			});
-		})
+		this.$nextTick(function() {
+			this.loadData();
+			this.$refs.pulldown.bindElement(null, () => {
+				return new Promise((resolve, reject) => {
+					if (this.$route.path == "/projects") {
+						this.loadData(false, () => {resolve();});
+					} else {
+						(() => {resolve();})();
+					}
+				});
+			})
+		});
 	},
 	beforeRouteEnter: function(to, from, next) {
 		next(vm => {

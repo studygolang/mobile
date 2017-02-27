@@ -6,7 +6,7 @@
 				<h4 class="list-box__title">{{resource.title}} <span class="host" v-if="resource.host">({{resource.host}})</span></h4>
 				<ul class="list-box__info">
 					<li class="list-box__info__meta">{{resource.user.username}}</li>
-					<li class="list-box__info__meta">{{resource.ctime}}</li>
+					<li class="list-box__info__meta"><timeago :since="resource.ctime" :max-time="86400 * 365" :format="formatTime"></timeago></li>
 					<li class="list-box__info__meta list-box__info__meta_extra">阅读 {{resource.viewnum}}</li>
 					<li class="list-box__info__meta list-box__info__meta_extra" @click="jumpDetailComment(resource)">评论 {{resource.cmtnum}}</li>
 				</ul>
@@ -55,19 +55,20 @@ export default {
 				}
 			});
 		})
-		bindPullUpLoading(() => {
-			return new Promise((resolve, reject) => {
-				if (this.$route.path == "/resources") {
-					this.loadData(true, () => {resolve();});
-				} else {
-					(() => {resolve();})();
-				}
-			});
-		}, {preloadHeight: 300});       // 100 * 3 三张卡片的高度
 	},
-	beforeDestroy: function() {
-        unbindPullUpLoading();
-    },
+	beforeRouteEnter: function(to, from, next) {
+		next(vm => {
+			bindPullUpLoading(() => {
+				return new Promise((resolve, reject) => {
+					vm.loadData(true, () => {resolve();});
+				});
+			}, {preloadHeight: 300});       // 100 * 3 三张卡片的高度
+		});
+	},
+	beforeRouteLeave: function(to, from, next) {
+		unbindPullUpLoading();
+		next();
+	},
 	methods: {
 		loadData: function(append, callback) {
 			if (append && !this.hasMore) {
@@ -124,6 +125,10 @@ export default {
 				name: 'resource-detail',
 				params: { id: resource.id }
 			});
+		},
+		formatTime: function(val) {
+			let date = new Date(val);
+			return date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate();
 		}
 	}
 }

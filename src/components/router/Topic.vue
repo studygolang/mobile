@@ -6,7 +6,7 @@
 			<h4 class="list-box__title">{{topic.title}}</h4>
 			<ul class="list-box__info">
 				<li class="list-box__info__meta">{{topic.node}}</li>
-				<li class="list-box__info__meta">{{topic.ctime}}</li>
+				<li class="list-box__info__meta"><timeago :since="topic.ctime" :max-time="86400 * 365" :format="formatTime"></timeago></li>
 				<li class="list-box__info__meta list-box__info__meta_extra">阅读 {{topic.view}}</li>
 			</ul>
 		</div>
@@ -54,19 +54,20 @@ export default {
 				}
 			});
 		})
-		bindPullUpLoading(() => {
-			return new Promise((resolve, reject) => {
-				if (this.$route.path == "/topics") {
-					this.loadData(true, () => {resolve();});
-				} else {
-					(() => {resolve();})();
-				}
-			});
-		}, {preloadHeight: 300});       // 100 * 3 三张卡片的高度
 	},
-	beforeDestroy: function() {
-        unbindPullUpLoading();
-    },
+	beforeRouteEnter: function(to, from, next) {
+		next(vm => {
+			bindPullUpLoading(() => {
+				return new Promise((resolve, reject) => {
+					vm.loadData(true, () => {resolve();});
+				});
+			}, {preloadHeight: 300});       // 100 * 3 三张卡片的高度
+		});
+	},
+	beforeRouteLeave: function(to, from, next) {
+		unbindPullUpLoading();
+		next();
+	},
 	methods: {
 		loadData: function(append, callback) {
 			if (append && !this.hasMore) {
@@ -110,6 +111,10 @@ export default {
 				name: 'topic-detail',
 				params: { id: topic.tid }
 			});
+		},
+		formatTime: function(val) {
+			let date = new Date(val);
+			return date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate();
 		}
 	}
 }

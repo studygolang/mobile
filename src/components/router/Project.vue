@@ -54,17 +54,20 @@ export default {
 				}
 			});
 		})
-		bindPullUpLoading(() => {
-			if (this.$route.path == "/projects") {
-					this.loadData(true, () => {resolve();});
-				} else {
-					(() => {resolve();})();
-				}
-		}, {preloadHeight: 300});       // 100 * 3 三张卡片的高度
 	},
-	beforeDestroy: function() {
-        unbindPullUpLoading();
-    },
+	beforeRouteEnter: function(to, from, next) {
+		next(vm => {
+			bindPullUpLoading(() => {
+				return new Promise((resolve, reject) => {
+					vm.loadData(true, () => {resolve();});
+				});
+			}, {preloadHeight: 300});       // 100 * 3 三张卡片的高度
+		});
+	},
+	beforeRouteLeave: function(to, from, next) {
+		unbindPullUpLoading();
+		next();
+	},
 	methods: {
 		loadData: function(append, callback) {
 			if (append && !this.hasMore) {

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import axios from 'axios';
 
+import VueTimeago from 'vue-timeago'
+
 import EventBus from './components/EventBus';
 
 import App from './App.vue'
@@ -22,6 +24,15 @@ import AboutTab from './components/AboutTab.vue'
 import TopHeader from './components/TopHeader.vue';
 
 Vue.use(VueRouter)
+
+Vue.use(VueTimeago, {
+  name: 'timeago', // component name, `timeago` by default
+  locale: 'zh-CN',
+  locales: {
+    // you will need json-loader in webpack 1
+    'zh-CN': require('vue-timeago/locales/zh-CN.json')
+  }
+})
 
 // 注册组件
 Vue.component(TopHeader.name, TopHeader)

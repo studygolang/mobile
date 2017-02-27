@@ -11,13 +11,13 @@
                         <div class="login-username">
                             <div class="txt color-green">账号</div>
                             <div>
-                                <input v-model="username" placeholder="请输入账号" class="input-content color-black" @focus="$event.target.select()">
+                                <input v-model="username" placeholder="请输入账号" class="input-content color-black" @focus="scrollIntoView">
                             </div>
                         </div>
                         <div class="login-password">
                             <div class="txt color-green">密码</div>
                             <div>
-                                <input type="password" v-model="passwd" placeholder="请输入密码" class="input-content color-black" @focus="$event.target.select()">
+                                <input type="password" v-model="passwd" placeholder="请输入密码" class="input-content color-black" @focus="scrollIntoView">
                             </div>
                         </div>
 
@@ -62,6 +62,12 @@
 
                     this.$router.push('/user?reload=1');
                 });
+            },
+            scrollIntoView: function(event) {
+                event.target.select();
+                setTimeout(() => {
+                    event.target.scrollIntoView(false);
+                }, 200);
             },
         }
     }

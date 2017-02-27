@@ -1,4 +1,4 @@
-var prefix = __RELEASE__ ? 'http://m.studygolang.com' : 'http://192.168.199.210:8088';
+var prefix = __RELEASE__ ? 'http://studygolang.com' : 'http://192.168.199.210:8088';
 
 export const IMG_CDN_PREFIX = 'http://img.ishequ360.com/';
 

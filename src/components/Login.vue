@@ -11,13 +11,13 @@
                         <div class="login-username">
                             <div class="txt color-green">账号</div>
                             <div>
-                                <input v-model="username" placeholder="请输入账号" class="input-content color-black" @focus="scrollIntoView">
+                                <input v-model="username" placeholder="请输入账号" class="input-content color-black" @focus="scrollIntoView($event)">
                             </div>
                         </div>
                         <div class="login-password">
                             <div class="txt color-green">密码</div>
                             <div>
-                                <input type="password" v-model="passwd" placeholder="请输入密码" class="input-content color-black" @focus="scrollIntoView">
+                                <input type="password" v-model="passwd" placeholder="请输入密码" class="input-content color-black" @focus="scrollIntoView($event)">
                             </div>
                         </div>
 
@@ -83,10 +83,10 @@
 
     #login-form { margin: 0 36px;  }
     #login-form .txt { font-size: 14px; }
-    #login-form .input-content { border: none; border-bottom: 1px solid #33c298; padding: 10px 0; width: 100%; outline: none; font-size: 16px; }
+    #login-form .input-content { border: none; border-bottom: 1px solid #63c470; padding: 10px 0; width: 100%; outline: none; font-size: 16px; }
     #login-form .login-password { margin-top: 25px; }
     #login-form .login-submit { margin-top: 45px; }
-    #login-form .login-submit input { border: none; background-color: #33c298; color: #fff; font-size: 21px; padding: 10px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; width: 100%; height: 45px; }
+    #login-form .login-submit input { border: none; background-color: #63c470; color: #fff; font-size: 21px; padding: 10px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; width: 100%; height: 45px; }
     #login-form .login-submit input:disabled { background-color: #ccc; }
 
     footer { margin-top: 13%; width: 100%; }

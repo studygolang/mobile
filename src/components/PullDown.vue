@@ -107,21 +107,27 @@
                     el.addEventListener('mousemove', this.onTouchmove, false);
                     el.addEventListener('mouseup', this.onTouchend, false);
                 }
+            },
+            unbind: function() {
+                this.removeEvent();
+            },
+            removeEvent: function() {
+                if (IS_MOBILE) {
+                    this.el.removeEventListener('touchstart', this.onTouchstart);
+                    this.el.removeEventListener('touchmove', this.onTouchmove);
+                    this.el.removeEventListener('touchend', this.onTouchend);
+                } else {
+                    this.el.removeEventListener('mousedown', this.onTouchstart);
+                    this.el.removeEventListener('mousemove', this.onTouchmove);
+                    this.el.removeEventListener('mouseup', this.onTouchend);
+                }
             }
         },
         mounted: function() {
             console.log('pullDown mounted');
         },
         beforeDestroy: function() {     // 组件销毁时解除事件绑定
-            if (IS_MOBILE) {
-                this.el.removeEventListener('touchstart', this.onTouchstart);
-                this.el.removeEventListener('touchmove', this.onTouchmove);
-                this.el.removeEventListener('touchend', this.onTouchend);
-            } else {
-                this.el.removeEventListener('mousedown', this.onTouchstart);
-                this.el.removeEventListener('mousemove', this.onTouchmove);
-                this.el.removeEventListener('mouseup', this.onTouchend);
-            }
+            this.removeEvent();
             console.log('pullDown events destroyed');
         }
     }

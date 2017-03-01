@@ -6,8 +6,7 @@ const TOKEN_CACHE_KEY = 'S_GOLANG_TOKEN';
 
 /**
  * 使用 Promise 封装并改善 Token 的获取
- * 优先从 localStorage 中读取
- * 其次通过 NA 接口获取
+ * 从 localStorage 中读取
  * 业务调用方式: getToken().then(() => {resolve...});
  * @returns {Promise}
  */
@@ -16,22 +15,24 @@ function getToken() {
         var tokenCache = ls.getItem(TOKEN_CACHE_KEY);
         if (tokenCache) {
             resolve(tokenCache);
-            return;
-        }
-
-        try {
-            NAProxy.naGetToken((data) => {
-                var token = data.token;
-                if (token) {
-                    ls.setItem(TOKEN_CACHE_KEY, token);
-                    resolve(token);
-                } else {
-                    resolve('');
-                }
-            });
-        } catch (e) {
+        } else {
             resolve('');
         }
+        return;
+
+        // try {
+        //     NAProxy.naGetToken((data) => {
+        //         var token = data.token;
+        //         if (token) {
+        //             ls.setItem(TOKEN_CACHE_KEY, token);
+        //             resolve(token);
+        //         } else {
+        //             resolve('');
+        //         }
+        //     });
+        // } catch (e) {
+        //     resolve('');
+        // }
     });
 }
 
@@ -52,7 +53,6 @@ function setToken(token) {
  */
 function isLogin(callback) {
     getToken().then((token) => {
-        console.log("isLogin, token:"+token);
         if (token) {
             callback(true);
         } else {

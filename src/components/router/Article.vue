@@ -45,22 +45,17 @@ export default {
 		PullDown
 	},
 	mounted: function() {
-		this.$nextTick(function() {
-			this.loadData();
-			let el = document.getElementById('list-main-wrap')
-			this.$refs.pulldown.bindElement(el, () => {
-				return new Promise((resolve, reject) => {
-					if (this.$route.path == "/articles") {
-						this.loadData(false, () => {resolve();});
-					} else {
-						(() => {resolve();})();
-					}
-				});
-			})
-		});
+		this.loadData();
 	},
 	beforeRouteEnter: function(to, from, next) {
 		next(vm => {
+
+			vm.$refs.pulldown.bindElement(null, () => {
+				return new Promise((resolve, reject) => {
+					vm.loadData(false, () => {resolve();});
+				});
+			});
+
 			bindPullUpLoading(() => {
 				return new Promise((resolve, reject) => {
 					vm.loadData(true, () => {resolve();});
@@ -69,11 +64,16 @@ export default {
 		});
 	},
 	beforeRouteLeave: function(to, from, next) {
+		this.$refs.pulldown.unbind();
+
 		unbindPullUpLoading();
 		next();
 	},
 	methods: {
 		loadData: function(append, callback) {
+			if (this.$route.path != '/articles') {
+				return;
+			}
 			if (append && !this.hasMore) {
 				return;
 			}
